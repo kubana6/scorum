@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './view.module.css';
 
-const Button = ({ children, onClick, isSmall = false}) => {
+const Button = ({ children, onClick, form = false}) => {
   return (
-    <button className={style.button} onClick={onClick}>
+    <button type={form ? 'submit' : 'button'} className={`${style.button} ${form && style.formButton}`} onClick={onClick}>
       {children}
     </button>
   )

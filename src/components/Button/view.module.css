@@ -18,3 +18,8 @@ button:hover {
   background-color: #578ED6;
   cursor: pointer;
 }
+
+.formButton {
+  width: 50%;
+  margin: 20px 0 0;
+}
