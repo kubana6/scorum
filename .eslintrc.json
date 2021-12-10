@@ -1,22 +1,67 @@
 {
-  "rules": {},
-  "env": {
-    "es6": true,
-    "browser": true
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/jsx-props-no-spreading": 0,
+    "react/prop-types": 0,
+    "react/no-danger": 0,
+    "no-debugger": 0,
+    "no-underscore-dangle": 0,
+    "no-shadow": "off",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "MemberExpression": 1,
+        "ObjectExpression": 1,
+        "offsetTernaryExpressions": false,
+        "flatTernaryExpressions": false,
+        "ignoredNodes": [
+          "ConditionalExpression"
+        ]
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "explicit-function-return-type": "off",
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "space-before-blocks": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "always"
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "import/newline-after-import": [
+      "error",
+      {
+        "count": 1
+      }
+    ],
+    "import/no-unresolved": "off"
   },
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "extends": "eslint:recommended",
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "plugins": [
-    "react"
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended"
   ]
 }

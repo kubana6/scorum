@@ -1,4 +1,4 @@
-import { EMAIL, PASSWORD } from "../../constants"
+import { EMAIL, PASSWORD } from '../../constants';
 
 export const signIn = (data) => {
   const isVerification = data.email === EMAIL && data.password === PASSWORD;

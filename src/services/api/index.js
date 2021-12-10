@@ -1,2 +1,4 @@
 import { signIn } from './signin';
-export { signIn };
+import { getDeckCards, getCards } from './card';
+
+export { signIn, getDeckCards, getCards };

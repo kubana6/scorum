@@ -5,18 +5,20 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const config = {
   entry: [
     'react-hot-loader/patch',
-    './src/index.js'
+    './src/index.js',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
+        enforce: 'pre',
+        use: ['source-map-loader', 'babel-loader'],
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -26,10 +28,10 @@ const config = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              modules: true
-            }
-          }
-        ]
+              modules: true,
+            },
+          },
+        ],
       },
       {
         test: /\.png$/,
@@ -37,27 +39,24 @@ const config = {
           {
             loader: 'url-loader',
             options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
+              mimetype: 'image/png',
+            },
+          },
+        ],
       },
       {
         test: /\.svg$/,
-        use: 'file-loader'
-      }
-    ]
+        use: 'file-loader',
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: 'public/index.html',
     }),
   ],
-  devServer: {
-    'static': {
-      directory: './dist'
-    }
-  }
+  devServer: { host: 'localhost', port: 3000, historyApiFallback: true },
+
 };
 
 module.exports = config;

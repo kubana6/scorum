@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import style from './view.module.css';
 
-const Login = () => {
+const Login = function () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -15,7 +15,7 @@ const Login = () => {
     if (error) {
       setError('');
     }
-  }
+  };
   const handleChangeEmail = useCallback((event) => {
     checkError();
     setEmail(event.target.value);
@@ -28,24 +28,24 @@ const Login = () => {
 
   const onSubmit = useCallback((event) => {
     event.preventDefault();
-    const data = { email, password }
+    const data = { email, password };
     const response = dispatch(signInPage(data));
 
     if (response.error) {
-      setError(response.error)
+      setError(response.error);
     }
-  }, [email, password])
+  }, [email, password]);
 
   return (
     <div className={style.login}>
       <h2 className={style.title}>Sign in to your account</h2>
       <form onSubmit={onSubmit} className={style.form}>
-        <Input error={error} name='email' type='text' value={email} onChange={handleChangeEmail} placeholder='Email' />
-        <Input error={error} name='password' type='password' value={password} onChange={handleChangePassword} placeholder='Password' />
+        <Input error={error} name="email" type="text" value={email} onChange={handleChangeEmail} placeholder="Email" />
+        <Input error={error} name="password" type="password" value={password} onChange={handleChangePassword} placeholder="Password" />
         <Button form>Sign in</Button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default Login;

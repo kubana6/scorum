@@ -1,27 +1,27 @@
 import React, { useCallback, useEffect } from 'react';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route } from 'react-router-dom';
 import { Switch, useHistory } from 'react-router';
-import Layout from './components/Layout'
+import Layout from './components/Layout';
 import HomePage from './modules/HomePage';
 import Login from './modules/Login';
 import { logOutPage, auth } from './actions/signin';
 
-export default () => {
+export default function () {
   const dispatch = useDispatch();
   const history = useHistory();
   const isLogin = useSelector((state) => state.signIn.login);
 
   useEffect(() => {
     if (isLogin) {
-      history.push('/')
+      history.push('/');
     } else {
-      history.push('/login')
+      history.push('/login');
     }
-  }, [isLogin])
+  }, [isLogin]);
 
   useEffect(() => {
-    dispatch(auth)
+    dispatch(auth);
   }, []);
 
   const logOut = useCallback(() => {
@@ -38,7 +38,6 @@ export default () => {
           <Login />
         </Route>
       </Switch>
-    </Layout >
+    </Layout>
   );
-
 }
