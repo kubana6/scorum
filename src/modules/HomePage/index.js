@@ -33,11 +33,11 @@ var HomePage = function() {
       case -currentRate:
         debugger
         setLose(true);
-        setResultInformation('You lose 10);
+        setResultInformation('You lose 10');
         break;
       case currentRate:
         setWinner(true);
-        setResultInformation('You winner 10);
+        setResultInformation('You winner 10');
         break;
 
       default:
